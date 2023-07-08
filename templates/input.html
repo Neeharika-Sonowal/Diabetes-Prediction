@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Input Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: beige;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        form {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            width: 200px;
+        }
+
+        input[type="number"] {
+            width: 150px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        
+        input[type="radio"] {
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        outline: none;
+        margin: 0;
+        padding: 0;
+        }
+
+        input[type="radio"]::before {
+        content: "";
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        border: 2px solid #000;
+        margin-right: 5px;
+        vertical-align: middle;
+        background-color: #fff; 
+        }
+
+        .label-container {
+        margin-bottom: 10px;
+        width: 800px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        }
+        .radio-container {
+        display: flex;
+        align-items: center;
+        padding-left: 20px;
+        width: 150px;
+        }
+
+        .radio-label {
+        margin-right: 20px;
+        }
+
+        .radio-input {
+        margin-right: 5px;
+        }
+
+        input[type="radio"]:checked::before {
+        background-color: #000; 
+        }
+
+        label[for] {
+        cursor: pointer;
+        vertical-align: middle;
+        }
+        .radio-group-container {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+        }
+
+
+        input[type="submit"] {
+        height: 40px;
+        background-color: #5437c8;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+        display: block;
+        margin: 0 auto;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #3c98c6;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Complete The Form To Check If You Have Diabetes</h1>
+    <form method="POST" action="/predict">
+        <div class="radio-group-container">
+            <div class="label-container">
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" required><br>
+        </div>
+        <div class="label-container">
+            <label for="gender">Gender:</label>
+            <div class="radio-container">
+                <input type="radio" id="male" name="gender" value="1" required>
+                <label class="radio-label" for="male">Male</label>
+                <input type="radio" id="female" name="gender" value="0" required>
+                <label class="radio-label" for="female">Female</label>
+            </div>
+        </div>
+        </div>
+
+        <div class="radio-group-container">
+            <div class="label-container">
+            <label for="polyuria">Polyuria:</label>
+            <div class="radio-container">
+                <input type="radio" id="polyuria_no" name="polyuria" value="0" required>
+                <label class="radio-label" for="polyuria_no">No</label>
+                <input type="radio" id="polyuria_yes" name="polyuria" value="1" required>
+                <label class="radio-label" for="polyuria_yes">Yes</label>
+            </div>
+            </div>
+
+            <div class="label-container">    
+            <label for="polydipsia">Polydipsia:</label>
+            <div class="radio-container">
+                <input type="radio" id="polydipsia_no" name="polydipsia" value="0" required>
+                <label class="radio-label" for="polydipsia_no">No</label>
+                <input type="radio" id="polydipsia_yes" name="polydipsia" value="1" required>
+                <label class="radio-label" for="polydipsia_yes">Yes</label>
+            </div>
+            </div>
+        </div>
+
+        <div class="radio-group-container">
+            <div class="label-container">
+        <label for="sudden_weight_loss">Sudden Weight Loss:</label>
+        <div class="radio-container">
+            <input type="radio" id="weight_loss_no" name="sudden_weight_loss" value="0" required>
+            <label class="radio-label" for="weight_loss_no">No</label>
+            <input type="radio" id="weight_loss_yes" name="sudden_weight_loss" value="1" required>
+            <label class="radio-label" for="weight_loss_yes">Yes</label>
+        </div>
+        </div>
+
+        
+        <div class="label-container">
+            <label for="weakness">Weakness:</label>
+        <div class="radio-container">
+            <input type="radio" id="weakness_no" name="weakness" value="0" required>
+            <label class="radio-label" for="weakness_no">No</label>
+            <input type="radio" id="weakness_yes" name="weakness" value="1" required>
+            <label class="radio-label" for="weakness_yes">Yes</label>
+        </div>
+        </div>
+        </div>
+
+        <div class="radio-group-container">
+            <div class="label-container">
+        <label for="polyphagia">Polyphagia:</label>
+        <div class="radio-container">
+            <input type="radio" id="polyphagia_no" name="polyphagia" value="0" required>
+            <label class="radio-label" for="polyphagia_no">No</label>
+            <input type="radio" id="polyphagia_yes" name="polyphagia" value="1" required>
+            <label class="radio-label" for="polyphagia_yes">Yes</label>
+        </div>
+        </div>
+
+        <div class="label-container">
+        <label for="genital_thrush">Genital Thrush:</label>
+        <div class="radio-container">
+            <input type="radio" id="genital_thrush_no" name="genital_thrush" value="0" required>
+            <label class="radio-label" for="genital_thrush_no">No</label>
+            <input type="radio" id="genital_thrush_yes" name="genital_thrush" value="1" required>
+            <label class="radio-label" for="genital_thrush_yes">Yes</label>
+        </div>
+        </div>
+        </div>
+
+        <div class="radio-group-container">
+            <div class="label-container">
+                <label for="visual_blurring">Visual Blurring:</label>
+                <div class="radio-container">
+                    <input type="radio" id="visual_blurring_no" name="visual_blurring" value="0" required>
+                    <label class="radio-label" for="visual_blurring_no">No</label>
+                    <input type="radio" id="visual_blurring_yes" name="visual_blurring" value="1" required>
+                    <label class="radio-label" for="visual_blurring_yes">Yes</label>
+                </div>
+            </div>
+
+            <div class="label-container">
+        <label for="itching">Itching:</label>
+        <div class="radio-container">
+            <input type="radio" id="itching_no" name="itching" value="0" required>
+            <label class="radio-label" for="itching_no">No</label>
+            <input type="radio" id="itching_yes" name="itching" value="1" required>
+            <label class="radio-label" for="itching_yes">Yes</label>
+        </div>
+            </div>
+        </div>
+
+        <div class="radio-group-container">
+            <div class="label-container">
+        <label for="irritability">Irritability:</label>
+        <div class="radio-container">
+            <input type="radio" id="irritability_no" name="irritability" value="0" required>
+            <label class="radio-label" for="irritability_no">No</label>
+            <input type="radio" id="irritability_yes" name="irritability" value="1" required>
+            <label class="radio-label" for="irritability_yes">Yes</label>
+        </div>
+            </div>
+
+            <div class="label-container">
+        <label for="delayed_healing">Delayed Healing:</label>
+        <div class="radio-container">
+            <input type="radio" id="delayed_healing_no" name="delayed_healing" value="0" required>
+            <label class="radio-label" for="delayed_healing_no">No</label>
+            <input type="radio" id="delayed_healing_yes" name="delayed_healing" value="1" required>
+            <label class="radio-label" for="delayed_healing_yes">Yes</label>
+        </div>
+            </div>
+        </div>
+
+        <div class="radio-group-container">
+            <div class="label-container">
+        <label for="partial_paresis">Partial Paresis:</label>
+        <div class="radio-container">
+            <input type="radio" id="partial_paresis_no" name="partial_paresis" value="0" required>
+            <label class="radio-label" for="partial_paresis_no">No</label>
+            <input type="radio" id="partial_paresis_yes" name="partial_paresis" value="1" required>
+            <label class="radio-label" for="partial_paresis_yes">Yes</label>
+        </div>
+            </div>
+
+            <div class="label-container">
+        <label for="muscle_stiffness">Muscle Stiffness:</label>
+        <div class="radio-container">
+            <input type="radio" id="muscle_stiffness_no" name="muscle_stiffness" value="0" required>
+            <label class="radio-label" for="muscle_stiffness_no">No</label>
+            <input type="radio" id="muscle_stiffness_yes" name="muscle_stiffness" value="1" required>
+            <label class="radio-label" for="muscle_stiffness_yes">Yes</label>
+        </div>
+            </div>
+        </div>
+
+        <div class="radio-group-container">
+            <div class="label-container">
+        <label for="alopecia">Alopecia:</label>
+        <div class="radio-container">
+            <input type="radio" id="alopecia_no" name="alopecia" value="0" required>
+            <label class="radio-label" for="alopecia_no">No</label>
+            <input type="radio" id="alopecia_yes" name="alopecia" value="1" required>
+            <label class="radio-label" for="alopecia_yes">Yes</label>
+        </div>        
+            </div>
+
+            <div class="label-container">
+        <label for="obesity">Obesity:</label>
+        <div class="radio-container">
+            <input type="radio" id="obesity_no" name="obesity" value="0" required>
+            <label class="radio-label" for="obesity_no">No</label>
+            <input type="radio" id="obesity_yes" name="obesity" value="1" required>
+            <label class="radio-label" for="obesity_yes">Yes</label>
+            <br>      
+        </div>
+            </div>
+        </div>
+
+        <input type="submit" value="Predict">
+    </form>
+</body>
+</html>
